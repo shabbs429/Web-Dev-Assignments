@@ -1,0 +1,113 @@
+body {
+  font-size: 16px;
+  color: #000;
+  background-color: lightgrey;
+  font-family: 'Oxygen', sans-serif;
+}
+
+/** HEADER **/
+#header-nav {
+  background-color:darkred;
+  border-radius: 0;
+  border: 0;
+}
+
+.navbar-brand h1 { /* Restaurant name */
+  font-family: 'Lora', serif;
+  color: wheat;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 10px;
+  margin-bottom: 0;
+  line-height: .75;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid brown;
+}
+.navbar-header button.navbar-toggle {
+  margin-top: 25px;
+  background-color: wheat;
+}
+
+
+#main-heading{
+  font-size: 2em;
+    margin-bottom: 40px;
+    color: darkred;
+    font-weight: bold;
+}
+
+#main-section{
+    border: 3px solid brown;
+
+    padding: 5px;
+    background-color: lightsalmon;
+    color: black;
+    margin-bottom: 25px;
+}
+
+#main-section h3{
+
+    color: rgb(172, 22, 22);
+    font-size: 1.5em;
+}
+/* END HEADER */
+
+/********** Large devices only **********/
+@media (min-width: 1200px){
+  #header-nav {
+    height: 80px;
+
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  #header-nav {
+    height: 80px;
+
+  }
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  #header-nav{
+    height: 80px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  /* Header */
+  .navbar-brand {
+    padding-top: 10px;
+    height: 80px;
+  }
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 10px;
+    font-size: 1.5em; /* 1vw = 1% of viewport width */
+  }
+
+  #collapsable-nav { /* Collapsed nav menu text */
+    background-color: lightsalmon;
+    
+  }
+  #nav-list{
+      margin-bottom: 0;
+  }
+  #collapsable-nav li{
+      padding-top: 10px;
+      border-bottom: 2px solid brown;
+  }  
+  #collapsable-nav li:nth-child(1){
+      padding-top: 6px;
+      
+  }
+}
