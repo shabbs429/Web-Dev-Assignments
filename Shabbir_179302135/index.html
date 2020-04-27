@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Assignment 1</title>
+    </head>
+<body>
+    <style>
+        *{
+            text-align: center;
+        }
+    </style>
+
+<h1 style="color: blue;">JavaScript Ajax Assignment 1</h1>
+
+<h2>Retrieving data from a XML file</h2>
+<div>The Ajax functionality won't work if page loaded statically since it voilates CORS rules. please load this page via the readme link given in the same folder</div>
+
+<h3>Scoreboard</h3>
+<p><b>Overs:</b> <span id="A1"></span></p>
+<p><b>Balls:</b> <span id="A2"></span></p>
+<p><b>Runs:</b> <span id="A3"></span></p>
+
+<button onclick="ajaxrequest()">Get Latest Score</button>
+
+<script>
+var ball_no = 0
+function loadDoc(url) {
+  setInterval(ajaxrequest(), 3)
+}
+function ajaxrequest(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET",'score.xml', true);
+  xhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("delivery");
+  var y = xmlDoc.getElementsByTagName("runs");
+  document.getElementById("A1").textContent = x[ball_no].getElementsByTagName("over")[0].childNodes[0].nodeValue
+
+  document.getElementById("A2").textContent = x[ball_no].getElementsByTagName("ball")[0].childNodes[0].nodeValue
+
+
+  document.getElementById("A3").textContent = Number(document.getElementById("A3").textContent) + Number(y[ball_no].getElementsByTagName("total")[0].childNodes[0].nodeValue)
+
+  ball_no += 1
+  
+  }
+
+</script>
+
+</body>
+</html>
