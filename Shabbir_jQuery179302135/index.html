@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jquery Assignment</title>
+    </head>
+
+    <body>
+        <style>
+            body{
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 16px;
+                font-style: italic;
+                text-align: center;
+            }
+            #main-div{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+
+        <h1>Jquery Ajax Assignment</h1>
+        <h2>Retriving data form HTML file</h2>
+        <div>The Ajax functionality won't work if page loaded statically since it violates CORS rules. please load this page via the readme link given in the same folder</div>
+   
+        <br><br>
+        <div id="main-div">The List appends every 3 seconds. (Wait for 3 seconds for the first item)
+            <ol id="main-list">
+            </ol>
+        </div>
+        <button onclick="setInterval(ajaxrequest, 3000)">Click to append List</button>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <script>
+            var i = 1
+            function ajaxrequest(){
+                var url = "mylist.html " + "li:nth-child(" + i + ")"; //taking data from mylist.html file, li by li.
+                var item = "<div id=item-"+i+"></div>";
+                $("#main-list").append(item);
+                $("#item-"+i).load(url);
+                i += 1;
+            }
+            
+        </script>
+    </body>
+
+</html>
+
+
